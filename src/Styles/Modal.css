@@ -44,7 +44,7 @@
       border-radius: 4px;
     }
     .add {
-      color: var(--white_a700) !important;
+      color: var(--white_700) !important;
       margin-left: 12px;
       padding-left: 22px;
       padding-right: 22px;
@@ -114,7 +114,7 @@
   .failed-data{
     padding: 2rem;
     button{
-      color: var(--white_a700) !important;
+      color: var(--white_700) !important;
       margin-left: 12px;
       padding-left: 22px;
       padding-right: 22px;

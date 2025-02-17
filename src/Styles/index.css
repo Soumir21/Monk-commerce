@@ -1,21 +1,8 @@
 :root {
-    --amber_a100: #ffe888;
-    --black_900: #000000;
-    --black_900_11: #00000011;
-    --black_900_19: #00000019;
-    --black_900_7f: #0000007f;
-    --black_900_cc: #000000cc;
-    --black_900_e5: #000000e5;
-    --blue_gray_100: #d1d1d1;
     --gray_100: #f6f6f8;
     --gray_600: #7e8185;
-    --red_a200: #ff404a;
     --teal_700: #007f5f;
     --text_default: #202223;
-    --white_a700: #ffffff;
-    --shadow-xs: 0 2px 4px 0 #00000019;
-    --radius-xs: 4px;
-    --space-xs: 8px;
-    --space-sm: 16px;
+    --white_700: #ffffff;
   }
   
