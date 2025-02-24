@@ -29,7 +29,9 @@ export default function ProductPickerModal({
         {
           headers: {
             "x-api-key": API_KEY,
+            "Content-Type": "application/json",
           },
+          mode: "cors",
         }
       );
       const result = await response.json();
