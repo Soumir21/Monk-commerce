@@ -6,7 +6,7 @@ import DiscountButton from "./Component/DiscountButton";
 import ShowSelectedVariants from "./Component/ShowSelectedVariants";
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-import { useState } from "react";
+import React, { useState } from "react";
 
 export default function ProductList() {
   const [finalisedProduct, setFinalisedProduct] = useState([]);
@@ -16,48 +16,44 @@ export default function ProductList() {
   const [draggedIndex, setDraggedIndex] = useState(null);
   const [search, setSearch] = useState("");
 
+  //Toggle Variants
   const changeShowVariants = (index) => {
     if (showVariants.includes(index)) {
-      // Remove the element matching 'index'
       const temp = showVariants.filter((ele) => ele !== index);
       console.log(temp);
       setShowVariants(temp);
     } else {
-      // Add the index if not already present
       setShowVariants((prev) => [...prev, index]);
     }
   };
   const deleteItem = (index) => {
     var temp = finalisedProduct.filter((ele, i) => i !== index);
-
-    console.log(temp);
     setFinalisedProduct(temp);
   };
   const updateVariants = (updatedVariants, productIndex) => {
     var temp = finalisedProduct;
     temp[productIndex].variants = updatedVariants;
-    console.log(temp);
     setFinalisedProduct(temp);
   };
+
+  //To handle the dragging function
   const handleDragStart = (index) => {
     setDraggedIndex(index);
   };
-
   const handleDragOver = (e) => {
     e.preventDefault();
   };
-
   const handleDrop = (index) => {
     if (draggedIndex === index) return;
-
     const updatedProducts = [...finalisedProduct];
     const [movedProduct] = updatedProducts.splice(draggedIndex, 1);
     updatedProducts.splice(index, 0, movedProduct);
-
     setFinalisedProduct(updatedProducts);
     setDraggedIndex(null);
   };
-  return (
+//
+
+return (
     <div className="productList">
       <div className="productList-heading">
         <img
@@ -76,7 +72,7 @@ export default function ProductList() {
         </div>
         {finalisedProduct.map((product, index) => {
           return (
-            <>
+            <React.Fragment key={product.id || index}>
               <div
                 key={product.id}
                 className="productList-addproduct-product"
@@ -127,7 +123,7 @@ export default function ProductList() {
               ) : (
                 ""
               )}
-            </>
+            </React.Fragment>
           );
         })}
 

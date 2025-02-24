@@ -16,28 +16,25 @@ export default function ShowVariants({
       const productSelected = selected.find((item) => item.id === d.id);
   
       if (!productSelected) {
-        // If the product isn't selected, add it with this variant
         const newProduct = { ...d, variants: [v] };
         setSelected((prev) => [...prev, newProduct]);
       } else {
-        // If the product is already selected, update its variants
-        let updatedVariants;
-        // Check if the variant is already selected
+           let updatedVariants;
+       
         if (productSelected.variants.some((sv) => sv.id === v.id)) {
-          // If yes, remove it (toggle off)
+         
           updatedVariants = productSelected.variants.filter(
             (sv) => sv.id !== v.id
           );
         } else {
-          // If no, add it (toggle on)
+      
           updatedVariants = [...productSelected.variants, v];
         }
-  
-        // If no variants remain, remove the product from the selected list
+
         if (updatedVariants.length === 0) {
           setSelected((prev) => prev.filter((item) => item.id !== d.id));
         } else {
-          // Otherwise, update the product with new variants
+ 
           const updatedProduct = {
             ...productSelected,
             variants: updatedVariants,
@@ -50,9 +47,9 @@ export default function ShowVariants({
     };
     return (
       <>
-        {variants.map((v) => {
+        {variants.map((v,index) => {
           return (
-            <div className="variant">
+            <div className="variant" key={index}>
               <div className="variant_title">
                 <input
                   type="checkbox"
