@@ -25,7 +25,7 @@ export default function ProductPickerModal({
   async function fetchData(pageNumber = 1) {
     try {
       const response = await fetch(
-        `/task/products/search?search=${search}&page=${pageNumber}&limit=10`,
+        `http://stageapi.monkcommerce.app/task/products/search?search=${search}&page=${pageNumber}&limit=10`,
         {
           headers: {
             "x-api-key": API_KEY,
